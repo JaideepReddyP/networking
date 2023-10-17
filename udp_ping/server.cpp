@@ -64,8 +64,6 @@ int main()
         printf("Received packet from %s:%d\n", inet_ntoa(client.sin_addr), ntohs(client.sin_port));
         printf("Data: %s\n", message);
 
-        cin.getline(message, BUFLEN);
-
         // reply the client with 2the same data
         if (sendto(server_socket, message, strlen(message), 0, (sockaddr*)&client, sizeof(sockaddr_in)) == SOCKET_ERROR)
         {
